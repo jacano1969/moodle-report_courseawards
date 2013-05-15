@@ -29,6 +29,6 @@ $plugin->cron           = 0;                            // Period for cron to ch
 $plugin->maturity       = MATURITY_ALPHA;
 $plugin->release        = '2.1.0';
 $plugin->dependencies   = array (                       // Plugin dependencies.
-    'block_courseaward_medal'   => 2013051500,          // Needs the medal block.
-    'block_courseaward_vote'    => 2013051500,          // Needs the vote block.
+    'block_courseawards_medal'   => 2013051500,          // Needs the medal block.
+    'block_courseawards_vote'    => 2013051500,          // Needs the vote block.
 );

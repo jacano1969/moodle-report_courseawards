@@ -150,14 +150,14 @@ $output .= '<h3>'.get_string('blocklist', 'report_courseawards').'</h3>'."\n";
 
 $output .= '<ul>'."\n";
 
-// Get the block id of the courseaward_* blocks so we can link to the list of where they're installed.
-if ($res = $DB->get_record('block', array('name'=>'courseaward_vote'))) {
+// Get the block id of the courseawards_* blocks so we can link to the list of where they're installed.
+if ($res = $DB->get_record('block', array('name'=>'courseawards_vote'))) {
     $vid =  $res->id;
 } else {
     print_error(get_string('error_noblock', 'report_courseawards'));
     die();
 }
-$res = $DB->get_record('block', array('name'=>'courseaward_medal'));
+$res = $DB->get_record('block', array('name'=>'courseawards_medal'));
 $mid = $res->id;
 
 $output .= '    <li><a href="'.$CFG->wwwroot.'/course/search.php?blocklist='.$vid.'&sesskey='.$USER->sesskey.'">'.
@@ -204,7 +204,7 @@ $output_admin .= "</ul>\n";
 $output_admin .= '<h3>'.get_string('admin_courseclearingtitle', 'report_courseawards').'</h3>'."\n";
 $output_admin .= 'Remove all votes from: ';
 $output_admin .= '<form name="wipecourse" method="get" action="admin.php"><select name="w">';
-$res = $DB->get_records_sql('SELECT DISTINCT course_id FROM '.$CFG->prefix.'block_courseaward_vote ORDER BY course_id ASC');
+$res = $DB->get_records_sql('SELECT DISTINCT course_id FROM '.$CFG->prefix.'block_courseawards_vote ORDER BY course_id ASC');
 if ($res) {
     foreach ($res as $row) {
         $res2 = $DB->get_record_select('course', 'id = '.$row->course_id, array('fullname'));
@@ -228,36 +228,36 @@ $output_admin .= '<ul>'."\n";
 
 // Votes.
 $vlive = $DB->get_record_sql("SELECT COUNT(id) AS cid FROM ".
-    $CFG->prefix."block_courseaward_vote WHERE deleted = '0'");
+    $CFG->prefix."block_courseawards_vote WHERE deleted = '0'");
 $output_admin .= '    <li>'.get_string('debugvotes', 'report_courseawards').
     get_string('debuglive', 'report_courseawards').$vlive->cid;
 $vdel = $DB->get_record_sql("SELECT COUNT(id) AS cid FROM ".
-    $CFG->prefix."block_courseaward_vote WHERE deleted = '1'");
+    $CFG->prefix."block_courseawards_vote WHERE deleted = '1'");
 $output_admin .= '; '.get_string('debugdeleted', 'report_courseawards').$vdel->cid;
 $output_admin .= '; '.get_string('debugtotal', 'report_courseawards').($vlive->cid + $vdel->cid).';</li>'."\n";
 
 // Notes.
 $nlive = $DB->get_record_sql("SELECT COUNT(id) AS cid FROM ".
-    $CFG->prefix."block_courseaward_vote WHERE deleted = '0' AND note <> ''");
+    $CFG->prefix."block_courseawards_vote WHERE deleted = '0' AND note <> ''");
 $output_admin .= '    <li>'.get_string('debugnotes', 'report_courseawards').
     get_string('debuglive', 'report_courseawards').$nlive->cid;
 $ndel = $DB->get_record_sql("SELECT COUNT(id) AS cid FROM ".
-    $CFG->prefix."block_courseaward_vote WHERE deleted = '1' AND note <> ''");
+    $CFG->prefix."block_courseawards_vote WHERE deleted = '1' AND note <> ''");
 $output_admin .= '; '.get_string('debugdeleted', 'report_courseawards').$ndel->cid;
 $output_admin .= '; '.get_string('debugtotal', 'report_courseawards').($nlive->cid + $ndel->cid).';</li>'."\n";
 
 // Users and courses.
-$uno = $DB->get_record_sql("SELECT COUNT(DISTINCT user_id) AS cid FROM ".$CFG->prefix."block_courseaward_vote");
-$cno = $DB->get_record_sql("SELECT COUNT(DISTINCT course_id) AS cid FROM ".$CFG->prefix."block_courseaward_vote");
+$uno = $DB->get_record_sql("SELECT COUNT(DISTINCT user_id) AS cid FROM ".$CFG->prefix."block_courseawards_vote");
+$cno = $DB->get_record_sql("SELECT COUNT(DISTINCT course_id) AS cid FROM ".$CFG->prefix."block_courseawards_vote");
 $output_admin .= '    <li>'.$uno->cid.get_string('debugusers', 'report_courseawards').$cno->cid.
     get_string('debugcourses', 'report_courseawards').'</li>'."\n";
 
 // Medals.
 $mlive = $DB->get_record_sql("SELECT COUNT(id) AS cid FROM ".
-    $CFG->prefix."block_courseaward_medal WHERE deleted = '0'");
+    $CFG->prefix."block_courseawards_medal WHERE deleted = '0'");
 $output_admin .= '    <li>'.get_string('debugmedals', 'report_courseawards').
     get_string('debugawarded', 'report_courseawards').$mlive->cid;
-$mdel = $DB->get_record_sql("SELECT COUNT(id) AS cid FROM ".$CFG->prefix."block_courseaward_medal WHERE deleted = '1'");
+$mdel = $DB->get_record_sql("SELECT COUNT(id) AS cid FROM ".$CFG->prefix."block_courseawards_medal WHERE deleted = '1'");
 $output_admin .= '; '.get_string('debugdeleted', 'report_courseawards').$mdel->cid;
 $output_admin .= '; '.get_string('debugtotal', 'report_courseawards').($mlive->cid + $mdel->cid).';</li>'."\n";
 $output_admin .= "</ul>\n";

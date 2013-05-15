@@ -24,7 +24,7 @@
 
 require_once(dirname(__FILE__).'/../../config.php');
 require_once($CFG->libdir.'/adminlib.php');
-require_once($CFG->dirroot.'/blocks/courseaward_medal/libmedal.php');
+require_once($CFG->dirroot.'/blocks/courseawards_medal/libmedal.php');
 
 defined('MOODLE_INTERNAL') || die;
 
@@ -43,13 +43,13 @@ $position = 0;
 $save_csv = false;
 
 define('PREFIX', $CFG->prefix);
-define('TBL_VOTE', 'block_courseaward_vote');
-define('TBL_MEDAL', 'block_courseaward_medal');
+define('TBL_VOTE', 'block_courseawards_vote');
+define('TBL_MEDAL', 'block_courseawards_medal');
 define('PATH_COURSE', $CFG->wwwroot.'/course/view.php?id=');
 define('PATH_USER', $CFG->wwwroot.'/user/view.php?id=');
 define('PATH_REPORT', $CFG->wwwroot.'/report/courseawards');
-define('PATH_VOTE', $CFG->wwwroot.'/blocks/courseaward_vote/');
-define('PATH_MEDAL', $CFG->wwwroot.'/blocks/courseaward_medal/');
+define('PATH_VOTE', $CFG->wwwroot.'/blocks/courseawards_vote/');
+define('PATH_MEDAL', $CFG->wwwroot.'/blocks/courseawards_medal/');
 // Define the image here so we can change it across the report.
 define('SORT_IMG', PATH_REPORT.'/img/arrow_down.png');
 define('DEL_IMG', PATH_REPORT.'/img/cross.png');
