@@ -22,7 +22,7 @@
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
-require_once(dirname(__FILE__).'/../../config.php');
+require_once(dirname(dirname(dirname(__FILE__))).'/config.php');
 require_once($CFG->libdir.'/adminlib.php');
 
 defined('MOODLE_INTERNAL') || die;
@@ -41,28 +41,36 @@ $output .= '    <li>'.get_string('highscore', 'report_courseawards').' <a href="
     get_string('five', 'report_courseawards').'</a> / <a href="report.php?q=c&l=10&s=s">'.
     get_string('ten', 'report_courseawards').'</a> / <a href="report.php?q=c&l=20&s=s">'.
     get_string('twenty', 'report_courseawards').'</a> / <a href="report.php?q=c&l=50&s=s">'.
-    get_string('fifty', 'report_courseawards').'</a> / <a href="report.php?q=c&l=0&s=s">'.
+    get_string('fifty', 'report_courseawards').'</a> / <a href="report.php?q=c&l=100&s=s">'.
+    get_string('onehundred', 'report_courseawards').'</a> / <a href="report.php?q=c&l=200&s=s">'.
+    get_string('twohundred', 'report_courseawards').'</a> / <a href="report.php?q=c&l=0&s=s">'.
     get_string('all', 'report_courseawards').'</a></li>'."\n";
 $output .= '    <li>'.get_string('mostvotes', 'report_courseawards').' <a href="report.php?q=c&l=1&s=v">'.
     get_string('top', 'report_courseawards').'</a> / <a href="report.php?q=c&l=5&s=v">'.
     get_string('five', 'report_courseawards').'</a> / <a href="report.php?q=c&l=10&s=v">'.
     get_string('ten', 'report_courseawards').'</a> / <a href="report.php?q=c&l=20&s=v">'.
     get_string('twenty', 'report_courseawards').'</a> / <a href="report.php?q=c&l=50&s=v">'.
-    get_string('fifty', 'report_courseawards').'</a> / <a href="report.php?q=c&l=0&s=v">'.
+    get_string('fifty', 'report_courseawards').'</a> / <a href="report.php?q=c&l=100&s=v">'.
+    get_string('onehundred', 'report_courseawards').'</a> / <a href="report.php?q=c&l=200&s=v">'.
+    get_string('twohundred', 'report_courseawards').'</a> / <a href="report.php?q=c&l=0&s=v">'.
     get_string('all', 'report_courseawards').'</a></li>'."\n";
 $output .= '    <li>'.get_string('mostnotes', 'report_courseawards').' <a href="report.php?q=c&l=1&s=n">'.
     get_string('top', 'report_courseawards').'</a> / <a href="report.php?q=c&l=5&s=n">'.
     get_string('five', 'report_courseawards').'</a> / <a href="report.php?q=c&l=10&s=n">'.
     get_string('ten', 'report_courseawards').'</a> / <a href="report.php?q=c&l=20&s=n">'.
     get_string('twenty', 'report_courseawards').'</a> / <a href="report.php?q=c&l=50&s=n">'.
-    get_string('fifty', 'report_courseawards').'</a> / <a href="report.php?q=c&l=0&s=n">'.
+    get_string('fifty', 'report_courseawards').'</a> / <a href="report.php?q=c&l=100&s=n">'.
+    get_string('onehundred', 'report_courseawards').'</a> / <a href="report.php?q=c&l=200&s=n">'.
+    get_string('twohundred', 'report_courseawards').'</a> / <a href="report.php?q=c&l=0&s=n">'.
     get_string('all', 'report_courseawards').'</a></li>'."\n";
 $output .= '    <li>'.get_string('mostdeletedvotes', 'report_courseawards').' <a href="report.php?q=c&l=1&s=d">'.
     get_string('top', 'report_courseawards').'</a> / <a href="report.php?q=c&l=5&s=d">'.
     get_string('five', 'report_courseawards').'</a> / <a href="report.php?q=c&l=10&s=d">'.
     get_string('ten', 'report_courseawards').'</a> / <a href="report.php?q=c&l=20&s=d">'.
     get_string('twenty', 'report_courseawards').'</a> / <a href="report.php?q=c&l=50&s=d">'.
-    get_string('fifty', 'report_courseawards').'</a> / <a href="report.php?q=c&l=0&s=d">'.
+    get_string('fifty', 'report_courseawards').'</a> / <a href="report.php?q=c&l=100&s=d">'.
+    get_string('onehundred', 'report_courseawards').'</a> / <a href="report.php?q=c&l=200&s=d">'.
+    get_string('twohundred', 'report_courseawards').'</a> / <a href="report.php?q=c&l=0&s=d">'.
     get_string('all', 'report_courseawards').'</a></li>'."\n";
 $output .= '    <li>'.get_string('alphalist', 'report_courseawards').' <a href="report.php?q=c&l=0&s=a">'.
     get_string('all', 'report_courseawards').'</a></li>'."\n";
